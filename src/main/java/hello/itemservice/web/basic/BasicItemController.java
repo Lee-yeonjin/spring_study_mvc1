@@ -104,6 +104,14 @@ public class BasicItemController {
         return "redirect:/basic/items/{itemId}";
     }
 
+    // 삭제 기능 추가
+    @GetMapping ("/{itemId}/delete")
+    public String edit(@PathVariable("itemId") Long itemId){
+        Item item = itemRepository.findById(itemId);
+        itemRepository.deleteById(item.getId());
+        return "redirect:/basic/items";
+    }
+
     @PostConstruct
     public void init(){
         itemRepository.save(new Item("itemA", 10000, 10));

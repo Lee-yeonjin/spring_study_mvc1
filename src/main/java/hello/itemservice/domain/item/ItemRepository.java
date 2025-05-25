@@ -22,6 +22,10 @@ public class ItemRepository {
         return store.get(id);
     }
 
+    public void deleteById(Long id){
+        Item item = store.remove(id);
+    }
+
     public List<Item> findAll(){
         return new ArrayList<>(store.values());
     }
